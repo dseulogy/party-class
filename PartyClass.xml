@@ -1,0 +1,405 @@
+<Ui xmlns="http://www.runewaker.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.runewaker.com/UI.xsd">
+<!-- 
+***************************
+*      PartyClass v 1.2       *
+*  Created by Caandera *
+***************************
+-->
+	<GameTooltip name="PartyClassTooltip" inherits="GameTooltipTemplate" parent="UIParent" hidden="true">
+		<Size>
+			<AbsDimension x="70" y="60"/>
+		</Size>
+	</GameTooltip>
+	<!--
+	*********************
+	*      Templates      *
+	*********************
+	-->
+	<!-- Button Template -->
+	<Button name="PartyClassButtonTemplate" virtual="true" hidden="false">
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon">
+					<Size><AbsDimension x="16" y="16"/></Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset><AbsDimension x="0" y="0"/></Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				PartyClassButton_Load(this);
+			</OnLoad>
+			<OnEvent>
+				PartyClassButton_Event(event, this);
+			</OnEvent>
+			<OnEnter>
+				PartyClassButton_Enter(this);
+			</OnEnter>
+			<OnLeave>
+				PartyClassTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Button name="PartyClassRaidButtonTemplate" virtual="true" hidden="false">
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon">
+					<Size><AbsDimension x="12" y="12"/></Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset><AbsDimension x="0" y="0"/></Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				PartyClassRaidButton_Load(this);
+			</OnLoad>
+			<OnEvent>
+				PartyClassRaidButton_Event(event, this);
+			</OnEvent>
+			<OnEnter>
+				PartyClassRaidButton_Enter(this);
+			</OnEnter>
+			<OnLeave>
+				PartyClassTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<!-- Icons for the Partyframes -->
+	<Button name="PartyClassButton1" inherits="PartyClassButtonTemplate" id="1" frameStrata="HIGH" parent="UnitFrame_party1">
+		<Size><AbsDimension x="16" y="16"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UnitFrame_party1" relativePoint="BOTTOM">
+				<Offset><AbsDimension x="-30" y="-10"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassButton2" inherits="PartyClassButtonTemplate" id="2" frameStrata="HIGH" parent="UnitFrame_party2">
+		<Size><AbsDimension x="16" y="16"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UnitFrame_party2" relativePoint="BOTTOM">
+				<Offset><AbsDimension x="-30" y="-10"/></Offset>
+			</Anchor>
+		</Anchors>
+	</Button>
+	<Button name="PartyClassButton3" inherits="PartyClassButtonTemplate" id="3" frameStrata="HIGH" parent="UnitFrame_party3">
+		<Size><AbsDimension x="16" y="16"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UnitFrame_party3" relativePoint="BOTTOM">
+				<Offset><AbsDimension x="-30" y="-10"/></Offset>
+			</Anchor>
+		</Anchors>
+	</Button>
+	<Button name="PartyClassButton4" inherits="PartyClassButtonTemplate" id="4" frameStrata="HIGH" parent="UnitFrame_party4">
+		<Size><AbsDimension x="16" y="16"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UnitFrame_party4" relativePoint="BOTTOM">
+				<Offset><AbsDimension x="-30" y="-10"/></Offset>
+			</Anchor>
+		</Anchors>
+	</Button>
+	<Button name="PartyClassButton5" inherits="PartyClassButtonTemplate" id="5" frameStrata="HIGH" parent="UnitFrame_party5">
+		<Size><AbsDimension x="16" y="16"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UnitFrame_party5" relativePoint="BOTTOM">
+				<Offset><AbsDimension x="-30" y="-10"/></Offset>
+			</Anchor>
+		</Anchors>
+	</Button>
+
+	<Button name="PartyClassRaidButton1" inherits="PartyClassRaidButtonTemplate" id="1" frameStrata="HIGH" parent="RaidPartyFrame1">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame1UnitFrame1" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton2" inherits="PartyClassRaidButtonTemplate" id="2" frameStrata="HIGH" parent="RaidPartyFrame1">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame1UnitFrame2" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton3" inherits="PartyClassRaidButtonTemplate" id="3" frameStrata="HIGH" parent="RaidPartyFrame1">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame1UnitFrame3" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton4" inherits="PartyClassRaidButtonTemplate" id="4" frameStrata="HIGH" parent="RaidPartyFrame1">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame1UnitFrame4" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton5" inherits="PartyClassRaidButtonTemplate" id="5" frameStrata="HIGH" parent="RaidPartyFrame1">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame1UnitFrame5" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton6" inherits="PartyClassRaidButtonTemplate" id="6" frameStrata="HIGH" parent="RaidPartyFrame1">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame1UnitFrame6" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton7" inherits="PartyClassRaidButtonTemplate" id="7" frameStrata="HIGH" parent="RaidPartyFrame2">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame2UnitFrame1" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton8" inherits="PartyClassRaidButtonTemplate" id="8" frameStrata="HIGH" parent="RaidPartyFrame2">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame2UnitFrame2" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton9" inherits="PartyClassRaidButtonTemplate" id="9" frameStrata="HIGH" parent="RaidPartyFrame2">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame2UnitFrame3" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton10" inherits="PartyClassRaidButtonTemplate" id="12" frameStrata="HIGH" parent="RaidPartyFrame2">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame2UnitFrame4" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton11" inherits="PartyClassRaidButtonTemplate" id="11" frameStrata="HIGH" parent="RaidPartyFrame2">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame2UnitFrame5" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton12" inherits="PartyClassRaidButtonTemplate" id="12" frameStrata="HIGH" parent="RaidPartyFrame2">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame2UnitFrame6" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton13" inherits="PartyClassRaidButtonTemplate" id="13" frameStrata="HIGH" parent="RaidPartyFrame3">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame3UnitFrame1" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton14" inherits="PartyClassRaidButtonTemplate" id="14" frameStrata="HIGH" parent="RaidPartyFrame3">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame3UnitFrame2" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton15" inherits="PartyClassRaidButtonTemplate" id="15" frameStrata="HIGH" parent="RaidPartyFrame3">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame3UnitFrame3" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton16" inherits="PartyClassRaidButtonTemplate" id="12" frameStrata="HIGH" parent="RaidPartyFrame3">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame3UnitFrame4" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton17" inherits="PartyClassRaidButtonTemplate" id="17" frameStrata="HIGH" parent="RaidPartyFrame3">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame3UnitFrame5" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton18" inherits="PartyClassRaidButtonTemplate" id="18" frameStrata="HIGH" parent="RaidPartyFrame3">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame3UnitFrame6" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton19" inherits="PartyClassRaidButtonTemplate" id="19" frameStrata="HIGH" parent="RaidPartyFrame4">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame4UnitFrame1" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton20" inherits="PartyClassRaidButtonTemplate" id="20" frameStrata="HIGH" parent="RaidPartyFrame4">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame4UnitFrame2" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton21" inherits="PartyClassRaidButtonTemplate" id="21" frameStrata="HIGH" parent="RaidPartyFrame4">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame4UnitFrame3" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton22" inherits="PartyClassRaidButtonTemplate" id="22" frameStrata="HIGH" parent="RaidPartyFrame4">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame4UnitFrame4" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton23" inherits="PartyClassRaidButtonTemplate" id="23" frameStrata="HIGH" parent="RaidPartyFrame4">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame4UnitFrame5" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton24" inherits="PartyClassRaidButtonTemplate" id="24" frameStrata="HIGH" parent="RaidPartyFrame4">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame4UnitFrame6" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton25" inherits="PartyClassRaidButtonTemplate" id="25" frameStrata="HIGH" parent="RaidPartyFrame5">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame5UnitFrame1" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton26" inherits="PartyClassRaidButtonTemplate" id="26" frameStrata="HIGH" parent="RaidPartyFrame5">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame5UnitFrame2" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton27" inherits="PartyClassRaidButtonTemplate" id="27" frameStrata="HIGH" parent="RaidPartyFrame5">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame5UnitFrame3" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton28" inherits="PartyClassRaidButtonTemplate" id="28" frameStrata="HIGH" parent="RaidPartyFrame5">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame5UnitFrame4" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton29" inherits="PartyClassRaidButtonTemplate" id="29" frameStrata="HIGH" parent="RaidPartyFrame5">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame5UnitFrame5" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton30" inherits="PartyClassRaidButtonTemplate" id="30" frameStrata="HIGH" parent="RaidPartyFrame5">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame5UnitFrame6" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton31" inherits="PartyClassRaidButtonTemplate" id="31" frameStrata="HIGH" parent="RaidPartyFrame6">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame6UnitFrame1" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton32" inherits="PartyClassRaidButtonTemplate" id="32" frameStrata="HIGH" parent="RaidPartyFrame6">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame6UnitFrame2" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton33" inherits="PartyClassRaidButtonTemplate" id="33" frameStrata="HIGH" parent="RaidPartyFrame6">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame6UnitFrame3" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton34" inherits="PartyClassRaidButtonTemplate" id="34" frameStrata="HIGH" parent="RaidPartyFrame6">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame6UnitFrame4" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton35" inherits="PartyClassRaidButtonTemplate" id="35" frameStrata="HIGH" parent="RaidPartyFrame6">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame6UnitFrame5" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+	<Button name="PartyClassRaidButton36" inherits="PartyClassRaidButtonTemplate" id="36" frameStrata="HIGH" parent="RaidPartyFrame6">
+		<Size><AbsDimension x="12" y="12"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativeTo="RaidPartyFrame6UnitFrame6" relativePoint="BOTTOMLEFT">
+				<Offset><AbsDimension x="-3" y="0"/></Offset>
+			</Anchor>
+		</Anchors>				
+	</Button>
+</Ui>

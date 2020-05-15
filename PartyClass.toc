@@ -1,0 +1,7 @@
+## Title: PartyClass
+## Notes: Show classes and informations on partymember
+## Author: Caandera
+## SavedVariables: -
+
+PartyClass.lua
+PartyClass.xml
